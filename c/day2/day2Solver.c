@@ -101,7 +101,7 @@ void day2Solver() {
     }
 
     printf("\n[Day 2 | Part 1] Solution: %d\n", result);
-    printf("\n[Day 2 | Part 2] Solution: %d\n", gamePowers);
+    printf("[Day 2 | Part 2] Solution: %d\n", gamePowers);
 
     assert(result == 2913);
     assert(gamePowers == 55593);
