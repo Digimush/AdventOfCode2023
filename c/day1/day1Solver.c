@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 #include "day1Solver.h"
 
 char* wordnumbers[] = {
@@ -130,6 +131,7 @@ void day1Solver() {
         //printf("\n%s [%d,%d]", buff, firstNumber, lastNumber);
     }
     printf("\n[Day 1 | Part 1] Solution: %d\n", result);
+    assert(result == 54304);
 
     fseek(fptr, 0, SEEK_SET);
     result = 0;
@@ -139,4 +141,5 @@ void day1Solver() {
         result += (firstNumber * 10) + lastNumber;
     }
     printf("[Day 1 | Part 2] Solution: %d\n", result);
+    assert(result == 54418);
 }

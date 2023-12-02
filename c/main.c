@@ -5,7 +5,7 @@
 #include "day2/day2Solver.h"
 
 int main() {
-    //day1Solver();
+    day1Solver();
     day2Solver();
     return 0;
 }
