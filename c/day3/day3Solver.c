@@ -12,6 +12,7 @@ struct PartNumber {
     int endIndex;
 } typedef PartNumber;
 
+// by using void* instead of typed pointer for array I should be able to make a generic ArrayList
 struct PartNumbersArrayList {
     size_t capacity;
     size_t length;
@@ -29,6 +30,7 @@ void PNArrayList_Add(PartNumbersArrayList* list, PartNumber element) {
         list->capacity *= 2;
         list->elements = realloc(list->elements, list->capacity * sizeof(PartNumber));
     }
+    // it should be possible to use memcpy for this, but I don't have time to change it and test
     list->elements[list->length].lineIndex = element.lineIndex;
     list->elements[list->length].startIndex = element.startIndex;
     list->elements[list->length].endIndex = element.endIndex;
@@ -51,6 +53,7 @@ struct Part {
     int totalAdjacent;
 } typedef Part;
 
+// by using void* instead of typed pointer for array I should be able to make a generic ArrayList
 struct PartsArrayList {
     size_t capacity;
     size_t length;
@@ -68,6 +71,7 @@ void PArrayList_Add(PartsArrayList* list, Part element) {
         list->capacity *= 2;
         list->elements = realloc(list->elements, list->capacity * sizeof(Part));
     }
+    // it should be possible to use memcpy for this, but I don't have time to change it and test
     list->elements[list->length].positionIndex = element.positionIndex;
     list->elements[list->length].lineIndex = element.lineIndex;
     list->elements[list->length].type = element.type;
@@ -140,10 +144,11 @@ void day3Solver() {
     int result = 0;
     int resultP2 = 0;
     int currentGearRatio = 0;
+    // there should be a better approach, check your notes for this day when refactoring
     for (int i = 0; i < partsList.length; i++) {
         for (int j = 0; j < partNumbersList.length; j++) {
             if (((partNumbersList.elements[j].startIndex >= partsList.elements[i].positionIndex - 1
-                  && partNumbersList.elements[j].startIndex <= partsList.elements[i].positionIndex + 1)
+                    && partNumbersList.elements[j].startIndex <= partsList.elements[i].positionIndex + 1)
                  || (partNumbersList.elements[j].endIndex >= partsList.elements[i].positionIndex - 1
                      && partNumbersList.elements[j].endIndex <= partsList.elements[i].positionIndex + 1))
                 && partNumbersList.elements[j].lineIndex >= partsList.elements[i].lineIndex - 1

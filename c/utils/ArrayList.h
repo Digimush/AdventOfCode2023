@@ -1,7 +1,3 @@
-//
-// Created by akhristenko on 03.12.2023.
-//
-
 #ifndef C_ARRAYLIST_H
 #define C_ARRAYLIST_H
 struct ArrayList {
