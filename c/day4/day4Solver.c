@@ -23,8 +23,7 @@ void ParseCard(char* line, int lineIndex) {
     char* token = strtok(data, delimiter);
     int matchingNumbers = 0;
     while(token != NULL) {
-        printf("{%s} ", token);
-        if (token != '|') {
+        if (*token != '|') {
             int value = atoi(token);
             numbers[value]++;
             if(numbers[value] > 1) {
@@ -33,7 +32,6 @@ void ParseCard(char* line, int lineIndex) {
         }
         token = strtok(NULL, delimiter);
     }
-    printf("\n");
     // calculating copies
     for(int i = 0; i < matchingNumbers; i++) {
         scratchcards[lineIndex + (i + 1)] += 1 * scratchcards[lineIndex];
@@ -83,7 +81,6 @@ void day4Solver() {
     char buff[255];
     int lineIndex = 0;
     while (fgets(buff, sizeof(buff), fptr)) {
-        printf("%s\n", buff);
         ParseCard(buff, lineIndex);
 
         result1 += calculateResult();
