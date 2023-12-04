@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 23)
 file(COPY ./day1/input DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/day1")
 file(COPY ./day2/input DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/day2")
 file(COPY ./day3/input DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/day3")
+file(COPY ./day4/input DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/day4")
 
 add_executable(c main.c
         day1/day1Solver.h
@@ -15,4 +16,6 @@ add_executable(c main.c
         day3/day3Solver.c
         day3/day3Solver.h
         utils/ArrayList.c
-        utils/ArrayList.h)
+        utils/ArrayList.h
+        day4/day4Solver.c
+        day4/day4Solver.h)
