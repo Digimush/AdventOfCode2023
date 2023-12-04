@@ -34,7 +34,7 @@ void ParseCard(char* line, int lineIndex) {
     }
     // calculating copies
     for(int i = 0; i < matchingNumbers; i++) {
-        scratchcards[lineIndex + (i + 1)] += 1 * scratchcards[lineIndex];
+        scratchcards[lineIndex + (i + 1)] += scratchcards[lineIndex];
     }
 }
 
